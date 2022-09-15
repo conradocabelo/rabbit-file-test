@@ -14,6 +14,12 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 * .Net 6 
 * Docker e Docker-Compose
 
+## :construction_worker: Arquitetura Utilizada
+
+ A arquitetura disponibiliza esta modelada no modelo C4, esenhada na camada de component, não desenhando todos os elementos apenas os mais importantes para explicação.
+ 
+![Diagrama sem nome drawio (1)](https://user-images.githubusercontent.com/79751069/190421521-94efc917-ba42-4a79-b85f-163dbc3d007c.png)
+
 ## 🚀 Subindo a Aplicação
 ### Configurando a aplicação
 
