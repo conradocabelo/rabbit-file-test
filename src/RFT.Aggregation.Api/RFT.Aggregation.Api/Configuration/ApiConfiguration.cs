@@ -26,8 +26,6 @@
                 app.UseSwaggerUI();
             }
 
-            app.UseHttpsRedirection();
-
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>

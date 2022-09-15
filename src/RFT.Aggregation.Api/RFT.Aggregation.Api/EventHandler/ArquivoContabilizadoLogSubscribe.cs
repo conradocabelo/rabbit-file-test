@@ -19,12 +19,15 @@ namespace RFT.Aggregation.Api.EventHandler
             return Task.CompletedTask;
         }
 
-        protected void OnHandlerEvent(object sender, ArquivoEstatisticaEvento e)
+        protected void OnHandlerEvent(object? sender, ArquivoEstatisticaEvento? e)
         {
-            using (var scope = _serviceProvider.CreateScope())
+            if (e != null)
             {
-                var logger = scope.ServiceProvider.GetRequiredService<ILogger<ArquivoContabilizadoLogSubscribe>>();
-                logger.LogInformation($"count = {e.Quantidade} for file {e.NomeAplicacao} {e.Data}");
+                using (var scope = _serviceProvider.CreateScope())
+                {
+                    var logger = scope.ServiceProvider.GetRequiredService<ILogger<ArquivoContabilizadoLogSubscribe>>();
+                    logger.LogInformation($"count = {e.Quantidade} for file {e.NomeAplicacao} {e.Data}");
+                }
             }
         }
     }

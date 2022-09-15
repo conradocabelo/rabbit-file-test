@@ -9,6 +9,7 @@
     <DockerServiceName>rft.aggregation.api</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="telegraf.conf" />
     <None Include="docker-compose.override.yml">
       <DependentUpon>docker-compose.yml</DependentUpon>
     </None>

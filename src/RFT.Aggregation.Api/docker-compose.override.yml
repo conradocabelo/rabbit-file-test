@@ -19,3 +19,18 @@ services:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
       - ~/.docker-conf/rft/log/:/var/log/rft
+    depends_on:
+      - message_bus
+  influxdb:
+    volumes:
+      - ~/.docker-conf/influx/data/:/root/.influxdb2
+    ports:
+      - 8086:8086 
+  telegraf:
+    links:
+      - influxdb
+    volumes:
+      - ./telegraf.conf:/etc/telegraf/telegraf.conf
+    depends_on:
+      - influxdb
+      - rft.aggregation.api

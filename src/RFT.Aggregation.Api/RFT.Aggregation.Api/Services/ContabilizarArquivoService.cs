@@ -26,6 +26,9 @@ namespace RFT.Aggregation.Api.Services
         {
             ArquivoEstatisticaEvento eventoEstatistica = new ArquivoEstatisticaEvento(arquivoRecebidoEvento);
 
+            if (eventoEstatistica.Chave == null)
+                throw new NullReferenceException("chave");
+
             if (!_contadores.ContainsKey(eventoEstatistica.Chave))
                 _contadores.Add(eventoEstatistica.Chave, eventoEstatistica);
             else
@@ -33,6 +36,7 @@ namespace RFT.Aggregation.Api.Services
                 var contadorSalvo = _contadores[eventoEstatistica.Chave];
                 
                 contadorSalvo.AtualizarData(eventoEstatistica.Data);
+                contadorSalvo.AtualizarDataUltimaLeitura();
                 contadorSalvo.Adicionar();
 
                 eventoEstatistica = contadorSalvo;

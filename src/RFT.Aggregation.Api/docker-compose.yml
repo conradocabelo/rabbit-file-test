@@ -6,6 +6,13 @@ services:
     container_name: 'message_bus_rabbitmq'
   rft.aggregation.api:
     image: ${DOCKER_REGISTRY-}rftaggregationapi
+    container_name: 'api_aggregation'
     build:
       context: .
-      dockerfile: RFT.Aggregation.Api/Dockerfile
+      dockerfile: RFT.Aggregation.Api/Dockerfile 
+  influxdb:
+    image: influxdb:2.0
+    container_name: 'rft_influx_db'
+  telegraf:
+    image: telegraf
+    container_name: 'rft_telegraf'

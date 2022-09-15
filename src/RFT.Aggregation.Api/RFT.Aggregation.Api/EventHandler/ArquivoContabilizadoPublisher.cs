@@ -11,7 +11,7 @@ namespace RFT.Aggregation.Api.EventHandler
 
     public class ArquivoContabilizadoPublisher : IArquivoContabilizadoPublisher
     {
-        public event EventHandler<ArquivoEstatisticaEvento> RaiseEvent;
+        public event EventHandler<ArquivoEstatisticaEvento>? RaiseEvent;
 
         protected void OnRaiseEvent(ArquivoEstatisticaEvento messageEvent) =>
               RaiseEvent?.Invoke(this, messageEvent);
