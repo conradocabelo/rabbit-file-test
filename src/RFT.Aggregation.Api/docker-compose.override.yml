@@ -12,6 +12,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
+      - MESSAGE_BUS_CONNECTION=amqp://message_bus:5672
     ports:
       - "80"
       - "443"
